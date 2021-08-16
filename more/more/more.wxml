@@ -1,0 +1,129 @@
+<!--
+  text 标签不换行
+  view 标签换行
+-->
+<text>more/more/more.wxml</text>
+<!--字符串-->
+<view>{{msg}}</view>
+<!--数字类型-->
+<view>{{num}}</view>
+<!--布尔类型-->
+<vie>是否是女性：{{isGirl}}</vie>x
+<!--object类型-->
+<view>{{person.age}}</view>
+
+<!--在标签的属性中使用-->
+<view data-num="{{num}}"> 自定义属性</view>
+<!--使用bool类型充当属性 checked-->
+<view>
+<checkbox checked="{{ischecked}}"></checkbox>
+</view>
+<!--运算-->
+<view>{{1+1}}</view>
+<view>{{'1'+'1'}}</view>
+<view>{{10 % 2 == 0 ? '偶数' : '奇数'}}</view>
+<!-- 列表循环
+    wx:for="{{数组或对象}}"
+    wx:for-item="循环项名称"
+    wx:for-index="循环项索引"
+    当出现数组嵌套循环的时候 绑定的名称item等不要重名
+    若只有一层循环则 wx:for-item="item" wx:for-index="index"可省略
+
+-->
+<view>
+  <view wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+    索引:{{index}}
+    --
+    值:{{item.name}}
+  </view>
+</view>
+<!--对象循环
+    把原来index改为key
+    item改为value
+    更加清晰易懂
+-->
+<view>
+  <view>对象循环</view>
+  <view wx:for="{{person}}" wx:for-item="value" wx:for-index="key">
+    属性：{{key}}
+    --
+    属性的值：{{value}}
+  </view>
+</view>
+<!--block 占位符
+    写代码存在，页面渲染时会移除掉-->
+<view>
+  <block wx:for="{{list}}" wx:for-item="item" wx:for-index="index"
+  class="my_list" >
+    索引:{{index}}
+    --
+    值:{{item.name}}
+</block>
+</view>
+<!--条件渲染-->
+<view>
+  <view>条件渲染</view>
+  <view wx:if="{{true}}">显示</view>
+  <view wx:if="{{false}}">隐藏</view>
+
+  <view wx:if="{{true}}">1</view>
+  <view wx:elif="{{false}}">2</view>
+  <view wx:else>3</view>
+</view>
+
+<view>---------------------------</view>
+<view hidden="{{false}}">hidden</view>
+<view hidden >hidden</view>
+<!--hidden不要和display属性一起用-->
+
+
+<view></view>
+
+<text selectable="true">长按文字复制</text>
+
+<!--导航组件
+    url 里可放绝对路径也可放相对路径  
+    open-type 跳转方式  
+    navigate（默认属性） 保留当前页面，但是不能跳到tabber页面 
+    redirect 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。
+    switchTab 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面参数
+    reLaunch 关闭所有页面，打开到应用内的某个页面
+    navigateBack 关闭当前页面，返回上一页面或多级页面。
+    可通过 getCurrentPages 获取当前的页面栈，决定需要返回几层
+-->
+<navigator url="../../demo01/demo01/demo01" open-type="navigate">跳转demo01页面</navigator>
+
+<!--rich-text富文本标签
+    接受标签字符串和对象数组
+-->
+<rich-text nodes="{{}}"></rich-text>
+<!--button 标签
+    外观属性：
+    size 控制按钮大小 ：mini小尺寸  default 默认
+    type 控制按钮颜色 primary 绿色  warn 红色
+    plain 控制按钮是否镂空
+-->
+<button size="default">默认按钮</button>
+<button type="primary">按钮</button>
+<button type="primary" plain="true">按钮</button>
+<button type="primary" loading="true">按钮</button>
+<!--按钮的开放能力
+    open-type
+    contact 	打开客服会话，如果用户在会话中点击消息卡片后返回小程序，可以从 bindcontact 回调中获得具体信息，具体说明 （小程序插件中不能使用）
+    需要在后台配置
+    share 	触发用户转发，使用前建议先阅读使用指引  
+    getPhoneNumber 	获取用户手机号，可以从bindgetphonenumber回调中获取到用户信息，具体说明 （小程序插件中不能使用
+    企业小程序用户才有权限
+    getUserInfo 	获取用户信息，可以从bindgetuserinfo回调中获取到用户信息 （小程序插件中不能使用） 
+    launchApp 	打开APP，可以通过app-parameter属性设定向APP传的参数具体说明 	
+    openSetting 	打开授权设置页 	2.0.7
+    feedback 	打开“意见反馈”页面，用户可提交反馈内容并上传日志，开发者可以登录小程 open序管理后台后进入左侧菜单“客服反馈”页面获取到反馈内容 	
+-->
+<view>按钮的开放能力</view>
+<button open-type="contact">contact</button>
+<button open-type="share">share</button>
+<button open-type="getPhoneNumber">getPhoneNumber</button>
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">getUserInfo</button>
+<button open-type="launchApp">launchApp</button>
+<button open-type="openSetting">openSetting</button>
+<button open-type="feedback">feedback</button>

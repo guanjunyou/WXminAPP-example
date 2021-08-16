@@ -1,0 +1,29 @@
+<!--search/search/search.wxml-->
+<text>search/search/search.wxml</text>
+<view>1</view>
+
+<!--图片标签
+  图片默认320px*240px
+  mode 图片宽高适配 页面轮播图常用 aspectFit 保持长边显示
+  aspectFill 保持短边显示（少用）
+  WidthFix  宽度指定后高度按比例调整 常用
+-->
+<image src="https://s3.bmp.ovh/imgs/2021/08/66da6a29e2272415.jpg"
+  mode="widthFix" class="Image1"></image>
+
+<!--轮播图swiper  每一个轮播项是swiper-item
+    默认样式宽100%，height:150px  
+    通过原图宽高算出swiper的宽高
+    swiper宽/swiper高=原图的宽/原图高
+    height = 750rpx*原图的高/原图的宽
+    autoplay 自动轮播
+    intterval 设置轮播时间 毫秒为单位
+    circular 循环轮播
+    indicator-dots 显示轮播圆点 分页器
+    指示点未选中颜色 indicator-color
+    指示点选中颜色 indicator-active-color
+-->
+<swiper autoplay interval="1000" circular="true" indicator-dots="true" indicator-color="#0094ff" indicator-active-color="#ff0094">
+  <swiper-item><image src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/b4/f6/f0/b4f6f0ab-9376-c474-a56f-9907528411bb/f28f0712-873d-446d-81ae-0ec6c977757d_1242-2688-ipxs-2.jpg/314x0w.jpg" class="Image2"  mode="widthFix"></image></swiper-item>
+  <swiper-item><image src="https://s3.bmp.ovh/imgs/2021/08/d407ca8c693d6cd5.jpg" class="Image2"  mode="widthFix"></image></swiper-item>
+</swiper>

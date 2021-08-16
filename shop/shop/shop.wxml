@@ -1,0 +1,35 @@
+<!--shop/shop/shop.wxml-->
+<text>shop/shop/shop.wxml</text>
+<!--给Input标签绑定input事件-->
+<input type="text" bindinput="handleInput" />
+<view>{{num}}</view>
+<!--无法在小程序的事件中直接传参
+    通过自定义属性的方式传递参数-->
+<button bindtap="handletap" data-operation="{{1}}">+</button>
+<button bindtap="handletap" data-operation="{{-1}}">-</button>
+<view>{{num}}</view>
+
+<!--单选框标签radio
+    必须要和父标签radio-group来使用
+    value 选中的单选框的值
+    需要给它绑定change事件
+    在页面中显示选中的值
+-->
+<radio-group bindchange="handlechange">
+    <radio value="male">男</radio>
+    <radio value="female" color="red">女</radio>
+</radio-group>
+
+<view>您选中的是{{gender}}</view>
+<!--复选框标签checkbox-->
+<text></text>
+<view>
+    <checkbox-group bindchange="handleItemChange">
+        <checkbox value="{{item.value}}" wx:for="{{list}}" wx:for-index="id">
+            {{item.name}}
+        </checkbox>
+        <view>
+            选中的水果 ：{{checkedlist}}
+        </view>
+    </checkbox-group>
+</view>

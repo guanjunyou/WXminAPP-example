@@ -1,0 +1,24 @@
+/* search/search/search.wxss */
+/*像素：px 
+改为rpx(等比例）
+
+
+样式引入 引入代码通过 @import来引入
+路径只能写相对路径
+
+*/
+@import "../../style/common.wxss";
+.Image1
+{
+  box-sizing: border-box;
+  border: 5px solid red;
+  width: 320px;
+  height: 500px;
+}
+.Image2
+{
+  width: 100%;
+  height: calc(750rpx*488/733);
+}
+/* swiper height = 750rpx*原图的高/原图的宽  
+   750rpx*488/733=500rpx  */

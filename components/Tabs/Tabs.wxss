@@ -1,0 +1,18 @@
+/* components/Tabs/Tabs.wxss */
+.Tabs{}
+.Tabs_title{
+  display: flex;/*伸缩盒子*/
+  padding: 10rpx 0;
+
+}
+.title_item{
+  flex: 1;
+  display: flex;
+  justify-content: center; /*水平对齐*/
+  align-content: center;/*垂直对齐*/
+}
+.active{
+  color: red;
+  border-bottom: 5rpx solid currentColor;/*下边框当前颜色*/
+}
+.Tabs_content{}
